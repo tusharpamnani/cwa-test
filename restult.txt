@@ -1,0 +1,170 @@
+tusha@Tushar MINGW64 /c/test/create-wormhole-app/my-test-app/packages/contracts (main)
+$ forge script script/DeploySender.s.sol --rpc-url $SEPOLIA_RPC --broadcast
+forge script script/DeployReceiver.s.sol --rpc-url $BASE_SEPOLIA_RPC --broadcast
+[⠊] Compiling...
+[⠘] Compiling 1 files with Solc 0.8.28
+[⠃] Solc 0.8.28 finished in 720.67ms
+Compiler run successful with warnings:
+Warning (2072): Unused local variable.
+  --> script/DeploySender.s.sol:11:9:
+   |
+11 |         VoteSender sender = new VoteSender(
+   |         ^^^^^^^^^^^^^^^^^
+
+Script ran successfully.
+
+## Setting up 1 EVM.
+
+==========================
+
+Chain 11155111
+
+Estimated gas price: 0.130615266 gwei
+
+Estimated total gas used for script: 729755
+
+Estimated amount required: 0.00009531714343983 ETH
+
+==========================
+
+##### sepolia
+✅  [Success] Hash: 0xd8056b04f0fad1ec2daf37f03ab60e03aaaf0af69eab8eedef3662228c4d146c
+Contract Address: 0x2Fa0DB38bda13E54f1359966149a0f1A7e63FD2c
+Block: 9910821
+Paid: 0.00004063477308515 ETH (561350 gas * 0.072387589 gwei)
+
+✅ Sequence #1 on sepolia | Total Paid: 0.00004063477308515 ETH (561350 gas * avg 0.072387589 gwei)                                              
+                                                                                                                                                 
+                                                                                                                                                 
+==========================
+
+ONCHAIN EXECUTION COMPLETE & SUCCESSFUL.
+
+Transactions saved to: C:/test/create-wormhole-app/my-test-app/packages/contracts/broadcast\DeploySender.s.sol\11155111\run-latest.json
+
+Sensitive values saved to: C:/test/create-wormhole-app/my-test-app/packages/contracts/cache\DeploySender.s.sol\11155111\run-latest.json
+
+[⠊] Compiling...
+[⠘] Compiling 1 files with Solc 0.8.28
+[⠃] Solc 0.8.28 finished in 723.41ms
+Compiler run successful with warnings:
+Warning (2072): Unused local variable.
+  --> script/DeployReceiver.s.sol:11:9:
+   |
+11 |         VoteReceiver receiver = new VoteReceiver(
+   |         ^^^^^^^^^^^^^^^^^^^^^
+
+Script ran successfully.
+
+## Setting up 1 EVM.
+
+==========================
+
+Chain 84532
+
+Estimated gas price: 0.0014 gwei
+
+Estimated total gas used for script: 1033659
+
+Estimated amount required: 0.0000014471226 ETH
+
+==========================
+
+##### base-sepolia
+✅  [Success] Hash: 0xbe4582ed754eb345d8295fea4985bbfc13dd3c0f11e7464399c78af496641d30
+Contract Address: 0xd67388A2DBaf54250A80b277e362cCc4b6022Bc3
+Block: 35442562
+Paid: 0.0000009541476 ETH (795123 gas * 0.0012 gwei)
+
+✅ Sequence #1 on base-sepolia | Total Paid: 0.0000009541476 ETH (795123 gas * avg 0.0012 gwei)                                                  
+                                                                                                                                                 
+                                                                                                                                                 
+==========================
+
+ONCHAIN EXECUTION COMPLETE & SUCCESSFUL.
+
+Transactions saved to: C:/test/create-wormhole-app/my-test-app/packages/contracts/broadcast\DeployReceiver.s.sol\84532\run-latest.json
+
+Sensitive values saved to: C:/test/create-wormhole-app/my-test-app/packages/contracts/cache\DeployReceiver.s.sol\84532\run-latest.json
+
+
+tusha@Tushar MINGW64 /c/test/create-wormhole-app/my-test-app/packages/contracts (main)
+$ 0xd67388A2DBaf54250A80b277e362cCc4b6022Bc3^C
+
+tusha@Tushar MINGW64 /c/test/create-wormhole-app/my-test-app/packages/contracts (main)
+$ cast call 0x2Fa0DB38bda13E54f1359966149a0f1A7e63FD2c \
+  "quoteDeliveryCost(uint16)(uint256)" \
+  10004 \
+  --rpc-url $SEPOLIA_RPC
+170000000000 [1.7e11]
+
+tusha@Tushar MINGW64 /c/test/create-wormhole-app/my-test-app/packages/contracts (main)
+$ cast send 0x2Fa0DB38bda13E54f1359966149a0f1A7e63FD2c  \
+  "sendVote(uint16,address,uint256,uint8)" \
+  10004 \
+  0xd67388A2DBaf54250A80b277e362cCc4b6022Bc3 \
+  1 \
+  1 \
+  --value 170000000000 \
+  --rpc-url $SEPOLIA_RPC \
+  --private-key $PRIVATE_KEY
+
+blockHash            0x8745e79955a015484eb5b4703b10b96c37b87e97d6a24545f893513fb869a56e
+blockNumber          9910835
+contractAddress
+cumulativeGasUsed    20133891
+effectiveGasPrice    96258897
+from                 0xEc59DC1e51D2d74E308b3119b467A8c0A7046B4F
+gasUsed              149460
+logs                 [{"address":"0x4a8bc80ed5a4067f1ccf107057b8270e0cc11a78","topics":["0x6eb224fb001ed210e379b335e35efe88672a8ce935d981a6896b27ffdf52a3b2","0x0000000000000000000000007b1bd7a6b4e61c2a123ac6bc2cbfc614437d0470"],"data":"0x00000000000000000000000000000000000000000000000000000000000c43a900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000f00000000000000000000000000000000000000000000000000000000000001ae012714000000000000000000000000d67388a2dbaf54250a80b277e362ccc4b6022bc30000006000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000000000000000000000ec59dc1e51d2d74e308b3119b467a8c0a7046b4f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007a120000000000000000000000000000000000000000000000000000000000002e80c271400000000000000000000000000000000000000000000000000000000000000000000000000000000000000007a0a53847776f7e94cc35742971acb2217b0db810000000000000000000000007a0a53847776f7e94cc35742971acb2217b0db810000000000000000000000002fa0db38bda13e54f1359966149a0f1a7e63fd2c00000000000000000000000000000000000000","blockHash":"0x8745e79955a015484eb5b4703b10b96c37b87e97d6a24545f893513fb869a56e","blockNumber":"0x973a33","blockTimestamp":"0x694cfe9c","transactionHash":"0x579fa0da7915d0a4476b4182da3e40b1df9ca34314ba864486692fc953694ce7","transactionIndex":"0x43","logIndex":"0x1dd","removed":false},{"address":"0x7b1bd7a6b4e61c2a123ac6bc2cbfc614437d0470","topics":["0xda8540426b64ece7b164a9dce95448765f0a7263ef3ff85091c9c7361e485364","0x00000000000000000000000000000000000000000000000000000000000c43a9"],"data":"0x0000000000000000000000000000000000000000000000000000002794ca24000000000000000000000000000000000000000000000000000000000000000000","blockHash":"0x8745e79955a015484eb5b4703b10b96c37b87e97d6a24545f893513fb869a56e","blockNumber":"0x973a33","blockTimestamp":"0x694cfe9c","transactionHash":"0x579fa0da7915d0a4476b4182da3e40b1df9ca34314ba864486692fc953694ce7","transactionIndex":"0x43","logIndex":"0x1de","removed":false},{"address":"0x2fa0db38bda13e54f1359966149a0f1a7e63fd2c","topics":["0x5449d61a3541f2ecfe5e84e18f82098f584290d347ce4477357350930027a41a"],"data":"0x00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000000000000000000000ec59dc1e51d2d74e308b3119b467a8c0a7046b4f0000000000000000000000000000000000000000000000000000000000002714","blockHash":"0x8745e79955a015484eb5b4703b10b96c37b87e97d6a24545f893513fb869a56e","blockNumber":"0x973a33","blockTimestamp":"0x694cfe9c","transactionHash":"0x579fa0da7915d0a4476b4182da3e40b1df9ca34314ba864486692fc953694ce7","transactionIndex":"0x43","logIndex":"0x1df","removed":false}]
+logsBloom            0x00000000000100040000000000000010000000000000000004000000000000000010000000000000000000000000000000000000800840000000000000000000000000000000000000080000000080000000000000000000000000000100010000000000000000000000000000001000000000000000000000000000000000000080000000000000002000000100000000000000000000000000108000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000400000000000000400000000000000000000020000000010000000000000000000000000000000
+root
+status               1 (success)
+transactionHash      0x579fa0da7915d0a4476b4182da3e40b1df9ca34314ba864486692fc953694ce7
+transactionIndex     67
+type                 2
+blobGasPrice         
+blobGasUsed
+to                   0x2Fa0DB38bda13E54f1359966149a0f1A7e63FD2c
+
+tusha@Tushar MINGW64 /c/test/create-wormhole-app/my-test-app/packages/contracts (main)
+$ pnpm dev
+ ERR_PNPM_BAD_PM_VERSION  This project is configured to use v9 of pnpm. Your current pnpm is v9.1.0
+
+If you want to bypass this version check, you can set the "package-manager-strict" configuration to "false" or set the "COREPACK_ENABLE_STRICT" environment variable to "0"
+
+tusha@Tushar MINGW64 /c/test/create-wormhole-app/my-test-app/packages/contracts (main)
+$ cd ../..
+
+tusha@Tushar MINGW64 /c/test/create-wormhole-app/my-test-app (main)
+$ pnpm dev
+ ERR_PNPM_BAD_PM_VERSION  This project is configured to use v9 of pnpm. Your current pnpm is v9.1.0
+
+If you want to bypass this version check, you can set the "package-manager-strict" configuration to "false" or set the "COREPACK_ENABLE_STRICT" environment variable to "0"
+
+tusha@Tushar MINGW64 /c/test/create-wormhole-app/my-test-app (main)
+$ export COREPACK_ENABLE_STRICT=0
+
+tusha@Tushar MINGW64 /c/test/create-wormhole-app/my-test-app (main)
+$ pnpm dev
+ WARN  This project is configured to use v9 of pnpm. Your current pnpm is v9.1.0
+
+> wormhole-crosschain-starter@0.0.0 dev C:\test\create-wormhole-app\my-test-app
+> pnpm --filter web dev
+
+ WARN  This project is configured to use v9 of pnpm. Your current pnpm is v9.1.0
+
+> web@0.0.0 dev C:\test\create-wormhole-app\my-test-app\apps\web
+> next dev
+
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.3s
+ ○ Compiling / ...
+ ✓ Compiled / in 2.2s (492 modules)
+ GET / 200 in 2463ms
+ ✓ Compiled /poll in 412ms (518 modules)
+ ✓ Compiled in 210ms (518 modules)
+ GET /poll 200 in 89ms
