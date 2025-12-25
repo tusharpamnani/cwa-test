@@ -17,7 +17,7 @@ build/
 # pnpm
 # --------------------
 .pnpm-debug.log*
-pnpm-lock.yaml
+# pnpm-lock.yaml should be committed for consistent installs
 .pnpm-store/
 
 # --------------------
