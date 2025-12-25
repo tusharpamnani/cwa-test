@@ -1,21 +1,13 @@
-type UIState =
-  | "idle"
-  | "connecting-wallet"
-  | "sending"
-  | "source-confirmed"
-  | "in-transit"
-  | "pending-claim"
-  | "delivered"
-  | "failed"
+import { WormholeStatus } from "@/lib/wormhole"
 
 type Props = {
-  status: UIState
+  status: WormholeStatus
   onRetry?: () => void
 }
 
 export default function StatusBadge({ status, onRetry }: Props) {
   const map: Record<
-    UIState,
+    WormholeStatus,
     {
       title: string
       description?: string
@@ -30,6 +22,12 @@ export default function StatusBadge({ status, onRetry }: Props) {
     "connecting-wallet": {
       title: "Connecting wallet",
       description: "Awaiting wallet approval",
+      className: "text-wormhole-blue",
+    },
+
+    "switching-network": {
+      title: "Switching network",
+      description: "Switching to Sepolia",
       className: "text-wormhole-blue",
     },
 

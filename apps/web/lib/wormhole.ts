@@ -13,6 +13,7 @@ export type WormholeStatus =
   | "sending"
   | "source-confirmed"
   | "in-transit"
+  | "pending-claim"
   | "delivered"
   | "failed"
 
@@ -118,6 +119,12 @@ export async function submitVote(
 
     const wormholeScanUrl =
       `https://wormholescan.io/#/tx/${tx.hash}?network=TESTNET`
+
+      onStatus("pending-claim", {
+        sourceTxHash: tx.hash,
+        wormholeScanUrl,
+      })
+      
 
     return {
       sourceTxHash: tx.hash,
